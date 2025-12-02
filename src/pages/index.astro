@@ -1,0 +1,96 @@
+---
+import BlogLayout from '../layouts/BlogLayout.astro';
+
+// Simulando los artículos (después conectarás con content collections)
+const posts = [
+  {
+    slug: 'suenos-incubus-sucubus',
+    title: 'Sueños, íncubus y súcubus',
+    excerpt: 'En las fronteras del sueño habitan seres que danzan entre el deseo y el terror. Exploramos los encuentros eróticos y sombríos del mundo onírico.',
+    category: 'Enredadera del sueño',
+    date: '2024-12-20',
+    image: '/sucubusincubus.jpg'
+  },
+  {
+    slug: 'lux-rosalia-mistica-barroca',
+    title: 'Lux de Rosalía: una mística barroca y gitana',
+    excerpt: 'Entre flamenco y misterio, Rosalía teje versos que abrazan lo sagrado y lo profano. Un análisis poético de su universo artístico.',
+    category: 'El poeta jardinero',
+    date: '2024-12-18',
+    image: '/luxderosalia.jpg'
+  },
+  {
+    slug: 'sonar-con-serpientes',
+    title: 'Soñar con serpientes',
+    excerpt: 'Cuando las serpientes aparecen en nuestros sueños, nos susurran secretos de transformación. Descifra los símbolos de la sabiduría reptil.',
+    category: 'Enredadera del sueño',
+    date: '2024-12-16',
+    image: '/sonarconserpientes.jpg'
+  }
+];
+---
+
+<BlogLayout title="Bitácora">
+  <!-- Hero Section -->
+  <section class="py-24 px-6 bg-gradient-to-b from-stone-50 dark:from-stone-900 to-white dark:to-stone-950">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="font-serif text-5xl md:text-6xl mb-6 text-stone-900 dark:text-stone-100">Bitácora</h1>
+      <p class="text-stone-500 dark:text-stone-400 text-lg font-light max-w-2xl mx-auto">
+        Exploraciones profundas en los territorios de la sabiduría ancestral, 
+        donde la poesía se encuentra con el misticismo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles Grid -->
+  <section class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {posts.map((post) => (
+          <article class="group cursor-pointer">
+            <a href={`/${post.slug}`} class="block">
+              <!-- Image -->
+              <div class="aspect-[4/3] bg-stone-100 dark:bg-stone-800 mb-6 overflow-hidden rounded-lg">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 dark:brightness-75"
+                />
+              </div>
+              
+              <!-- Category -->
+              <span class={`inline-block text-[10px] uppercase font-medium tracking-[0.2em] mb-3 px-3 py-1.5 rounded-full border-2 bg-transparent ${
+                post.category === 'El poeta jardinero' ? 'border-amber-600 text-amber-600 dark:border-amber-500 dark:text-amber-500' :
+                post.category === 'Enredadera del sueño' ? 'border-blue-600 text-blue-600 dark:border-blue-500 dark:text-blue-500' :
+                post.category === 'La fragua cósmica' ? 'border-orange-600 text-orange-600 dark:border-orange-500 dark:text-orange-500' :
+                post.category === 'La casa del jardín' ? 'border-emerald-600 text-emerald-600 dark:border-emerald-500 dark:text-emerald-500' :
+                'border-purple-600 text-purple-600 dark:border-purple-500 dark:text-purple-500'
+              }`}>
+                {post.category}
+              </span>
+              
+              <!-- Title -->
+              <h2 class="font-serif text-2xl mb-4 text-stone-900 dark:text-stone-100 group-hover:text-stone-700 dark:group-hover:text-stone-300 transition-colors leading-tight">
+                {post.title}
+              </h2>
+              
+              <!-- Excerpt -->
+              <p class="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-4">
+                {post.excerpt}
+              </p>
+              
+              <!-- Date -->
+              <time class="text-xs text-stone-400 dark:text-stone-500 font-medium">
+                {new Date(post.date).toLocaleDateString('es-ES', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </time>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BlogLayout>
