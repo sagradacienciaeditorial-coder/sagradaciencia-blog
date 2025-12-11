@@ -3,7 +3,8 @@ import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 
 export default defineConfig({
+  base: '/bitacora',
   integrations: [tailwind(), mdx()],
-  site: 'https://sagradaciencia-blog.vercel.app',
+  site: 'https://www.sagradaciencia.com',
   output: 'static'
 });
