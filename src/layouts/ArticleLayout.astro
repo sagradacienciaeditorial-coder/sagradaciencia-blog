@@ -1,5 +1,6 @@
 ---
 import BlogLayout from './BlogLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
 
 export interface Props {
   title: string;
@@ -123,6 +124,8 @@ const formattedDate = new Date(date).toLocaleDateString('es-ES', {
       </div>
     </footer>
   </article>
+
+  <Newsletter />
 </BlogLayout>
 
 <style>
