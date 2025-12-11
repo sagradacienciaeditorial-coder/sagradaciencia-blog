@@ -26,6 +26,10 @@ const { title, description = "Sagrada Ciencia - Jardín Cósmico de Sabiduría A
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
   
+  <!-- Favicon -->
+  <link rel="icon" href="https://www.sagradaciencia.com/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="https://www.sagradaciencia.com/favicon.svg" />
+  
   <script is:inline>
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark')
@@ -68,7 +72,7 @@ const { title, description = "Sagrada Ciencia - Jardín Cósmico de Sabiduría A
   </main>
 
   <!-- Footer -->
-  <footer class="bg-stone-900 dark:bg-stone-950 text-white py-16 mt-24 transition-colors duration-300">
+  <footer class="bg-stone-900 dark:bg-stone-950 text-white py-16 mt-0 transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-6 text-center">
       <p class="font-serif text-2xl font-bold tracking-widest mb-2">SC.</p>
       <p class="text-stone-400 text-sm">© 2025 Sagrada Ciencia. Todos los derechos reservados.</p>
